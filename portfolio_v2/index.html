@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin's Portfolio</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+   tailwind.config = {
+     darkMode: 'class'
+    };
+ </script>
+
+  <!-- GSAP + Lenis -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.18/bundled/lenis.min.js"></script>
+  
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/illustrations/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/illustrations/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/illustrations/favicon-16x16.png">
+<link rel="manifest" href="assets/illustrations/site.webmanifest">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+
+<body class="bg-white text-black dark:bg-[#111827] dark:text-white transition-colors duration-500">
+
+  <!-- Scroll Indicator -->
+  <div id="scroll-indicator"></div>
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-gray-950/70 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
+  <div class="relative flex items-center justify-between px-6 py-4">
+
+<!-- Left: Slightly shifted Logo (Absolute) -->
+  <div class="absolute left-6 flex items-center gap-2 text-2xl font-extrabold text-blue-600 dark:text-blue-400 tracking-tight">
+    <span><img src="assets\Illustrations\android-chrome-512x512_1.png" alt="Logo" class="w-6 h-6 inline-block"></span>
+    <span class="hover:tracking-widest transition-all duration-500">Justin.dev</span>
+  </div>
+
+
+
+
+    <!-- Centered Content Container -->
+    <div class="w-full max-w-7xl mx-auto flex items-center justify-end pl-32">
+      
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex gap-6 text-sm font-semibold relative">
+        <ul class="flex gap-6">
+          <li><a href="#" class="relative group transition-all">Home<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span></a></li>
+          <li><a href="#about" class="relative group transition-all">About<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span></a></li>
+          <li><a href="#projects" class="relative group transition-all">Projects<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span></a></li>
+          <li><a href="#contact" class="relative group transition-all">Contact<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme Toggle -->
+      <button id="toggle-theme" class="ml-6 p-2 rounded-full border border-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+        <span class="text-xl">🌗</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+  <!-- Sticky Home Button -->
+  <a href="#top" class="fixed bottom-6 right-6 z-50 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300">
+    ↑
+  </a>
+
+
+<!-- Hero Section -->
+<section id="top" class="hero relative overflow-hidden min-h-screen flex items-center justify-center px-6 text-gray-900 dark:text-white transition-colors duration-500 bg-gradient-to-b from-white to-[#e2e8f0] dark:from-[#111827] dark:to-[#1e293b]">
+  
+  <!-- Discord-style animated background -->
+  <div class="discord-gradient"></div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full items-center text-center md:text-left">
+
+    <!-- Left: Text Content -->
+    <div>
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-4">
+        Hey, I'm <span class="text-blue-500 dark:text-blue-400">Justin</span>
+      </h2>
+      <p class="max-w-xl mx-auto md:mx-0 text-lg text-gray-600 dark:text-gray-300">
+        I like building solutions that work smoothly and look clean—whether it’s a web interface, an AI-powered feature, or a system that tackles real challenges. I’ve explored a variety of tools and technologies, and I’m always experimenting with new ones to sharpen my workflow. At the core, my goal is to create experiences that feel intuitive and genuinely useful to the people who interact with them.      </p>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="flex justify-center">
+      <img src="assets/Pic1.jpg" alt="Justin's Photo"
+        class="max-w-sm w-full rounded-2xl shadow-lg animate__animated animate__fadeIn animate__slow" />
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="about" class="min-h-screen flex items-center px-6 py-19 text-gray-900 dark:text-gray-100 transition-colors duration-500 bg-gradient-to-b from-white to-[#f1f5f9] dark:from-[#1e293b] dark:to-[#0f172a]">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+
+    
+    <!-- Left: Image -->
+    <div class="flex justify-center items-center h-screen">
+      <img src="assets/pic_2.jpg" alt="Your Photo" class="rounded-2xl w-88 shadow-xl transition-transform duration-500 hover:scale-105">
+    </div>
+
+
+    <!-- Right: Text -->
+    <div>
+      <h3 class="text-4xl font-bold mb-4">About Me</h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300">
+        I’m a Software Developer with a strong foundation in 
+        <span class="font-semibold text-indigo-600 animate-highlight">full-stack development</span>, 
+        specializing in building fast, responsive, and user-centric web applications. My expertise lies in 
+        <span class="font-semibold text-indigo-600 animate-highlight-delay">Django</span>, 
+        <span class="font-semibold text-indigo-600 animate-highlight-delay2">Flask</span>, and 
+        <span class="font-semibold text-indigo-600 animate-highlight-delay3">Tailwind CSS</span>, with the ability to integrate 
+        <span class="font-semibold text-indigo-600 animate-highlight-delay4">machine learning</span> components when needed.
+        <br><br>
+        At Reed Elsevier PH, I worked as an AI Developer Intern, transforming complex requirements into seamless, user-friendly digital solutions. I emphasize clean UI/UX design and system performance.
+        <br><br>
+        With certifications in Python, Java, and networking fundamentals, I bring technical depth and clear communication to every project. My focus is on delivering scalable, maintainable solutions aligned with real business goals.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="projects" class="relative min-h-screen px-6 py-24 text-gray-900 dark:text-gray-100 transition-colors duration-500 bg-gradient-to-b from-[#f8fafc] to-[#e2e8f0] dark:from-[#0f172a] dark:to-[#1e293b] font-serif">
+  <!-- Animated Background -->
+  <div class="discord-gradient"></div>
+
+  <!-- Section Title -->
+  <div class="flex justify-center mb-10">
+    <h3 class="text-4xl sm:text-5xl font-bold tracking-tight text-center text-gray-900 dark:text-gray-100 inline-block pb-2">
+      Projects
+    </h3>
+  </div>
+
+  <!-- Project Grid -->
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+
+<!-- Project Card with Modal -->
+<div x-data="{ showModal: false, slide: 0 }" class="relative">
+
+  <!-- Project Card -->
+  <div
+    class="project-card flex flex-col justify-between h-full p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-1 hover:scale-[1.02] duration-300 min-h-[420px]">
+
+    <!-- Project Summary -->
+    <div>
+      <h4 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 font-serif">LTMS Website Project</h4>
+      <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6 font-light tracking-wide">
+        A full-featured internal system for Land Transportation Management with dashboards, user authentication, and admin controls. Built using PHP, MySQL, and deployed via XAMPP.
+      </p>
+      <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed font-light tracking-wide">
+        This project simulates a full Land Transportation Management System with:
+      </p>
+      <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 mt-4 text-lg">
+        <li>Admin Dashboard</li>
+        <li>User Authentication</li>
+        <li>Account Registration Tracking</li>
+        <li>MySQL as database</li>
+      </ul>
+      <p class="mt-4 text-gray-800 dark:text-gray-300 text-lg leading-relaxed font-light tracking-wide">
+        I led this group project as the backend developer, handling logic, database design, and system flow while also supporting the frontend implementation.
+      </p>
+    </div>
+
+    <!-- Preview Button -->
+    <div class="mt-4">
+      <button @click="showModal = true"
+        class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition duration-300 text-base font-medium">
+        Preview Project
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div x-show="showModal" x-transition x-cloak
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    
+
+    <!-- Modal Content -->
+    <div @click.outside="showModal = false" @keydown.escape.window="showModal = false" tabindex="0"
+      class="bg-white dark:bg-gray-900 p-8 rounded-3xl w-full max-w-6xl relative shadow-2xl overflow-y-auto max-h-[90vh] m-4">
+
+      <!-- Close Button -->
+      <button @click="showModal = false"
+        class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-red-600 text-2xl font-bold">
+        ✖
+      </button>
+
+      <!-- Slideshow -->
+      <div class="relative overflow-hidden rounded-lg mb-8">
+        <div class="flex transition-transform duration-500" :style="'transform: translateX(-' + slide * 100 + '%)'">
+          <img src="assets/LTO.png" alt="Slide 1" class="w-full object-cover rounded-xl">
+          <img src="assets/LTO1.png" alt="Slide 2" class="w-full object-cover rounded-xl">
+          <img src="assets/LTO2.png" alt="Slide 3" class="w-full object-cover rounded-xl">
+        </div>
+
+        <!-- Arrows -->
+        <button @click="slide = (slide === 0 ? 2 : slide - 1)"
+          class="absolute left-3 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 p-4 rounded-full shadow-lg z-20 text-xl">
+          &#8592;
+        </button>
+        <button @click="slide = (slide === 2 ? 0 : slide + 1)"
+          class="absolute right-3 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 p-4 rounded-full shadow-lg z-20 text-xl">
+          &#8594;
+        </button>
+
+        <!-- Dots -->
+        <div class="flex justify-center mt-4 gap-2">
+          <template x-for="index in 3" :key="index">
+            <button @click="slide = index - 1"
+              :class="{'bg-blue-600': slide === index - 1, 'bg-gray-400': slide !== index - 1}"
+              class="h-3 w-3 rounded-full transition-all"></button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Confidential Project 1 -->
+<div class="project-card p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-lg border border-dashed border-gray-400 dark:border-gray-500 transition-transform transform hover:-translate-y-1 hover:scale-[1.02] duration-300">
+  <h4 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-200 italic flex items-center gap-2">
+    Internal Project
+  </h4>
+  <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed">
+    A custom-built <strong>Django web application</strong> designed to deliver intelligent recommendations using embedding search. I integrated <strong>FAISS</strong> for fast similarity matching and <strong>LLM endpoints</strong> with secure API keys for precise search results.
+  </p>
+  <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 text-lg mt-2 space-y-1">
+    <li><strong>Backend:</strong> Python, Django</li>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Database:</strong> SQL Server</li>
+    <li><strong>AI Integration:</strong> FAISS, LLM APIs</li>
+  </ul>
+  <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed mt-2">
+    A milestone project that reflects my transition into AI-enhanced web development—merging traditional full-stack flow with modern recommendation logic.
+  </p>
+</div>
+
+<!-- Confidential Project 2 -->
+<div class="project-card p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-lg border border-dashed border-gray-400 dark:border-gray-500 transition-transform transform hover:-translate-y-1 hover:scale-[1.02] duration-300">
+  <h4 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-200 italic flex items-center gap-2">
+    Helper Projects (Internal)
+  </h4>
+  <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed">
+    I contributed to three internal Django-based projects, focusing on UI development and backend enhancements:
+  </p>
+
+
+  <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 text-lg mt-2 space-y-1">
+    <li>Designed and developed full UI for a Django application with clean UX.</li>
+    <li>Custom login with <strong>ChromaDB</strong> enforcing role-based confidentiality.</li>
+    <li>Helped build a Django tool that:
+      <ul class="ml-5 mt-2 space-y-1">
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 font-bold">↪</span> <span>Accepts file uploads</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 font-bold">↪</span> <span>Performs transcription</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 font-bold">↪</span> <span>Identifies key issues</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 font-bold">↪</span> <span>Suggests AI-powered solutions</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed mt-2">
+    These strengthened my UI/UX skills and integration of enterprise-grade AI tools.
+  </p>
+</div>
+
+
+</section>
+
+
+  
+
+<!-- Contact -->
+<section id="contact" class="min-h-screen px-6 py-24 text-gray-900 dark:text-white transition-colors duration-500 bg-gradient-to-b from-white to-gray-100 dark:from-[#1f2937] dark:to-[#111827]">
+  <div class="max-w-2xl mx-auto text-center space-y-8">
+    <h3 class="text-4xl font-bold">Let's Connect</h3>
+    <p class="text-lg text-gray-600 dark:text-gray-300">
+        Need a dev with a keyboard and caffeine addiction?  Let’s connect!
+    </p>
+
+    <div class="flex flex-col md:flex-row justify-center gap-4">
+      <!-- Email Button -->
+      <a href="mailto:justinbulot@outlook.com" 
+         class="px-6 py-3 bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400 text-white rounded-full transition shadow-md">
+        📧 Email Me
+      </a>
+
+      <!-- LinkedIn Button -->
+      <a href="https://linkedin.com/in/justin-bulot" target="_blank" rel="noopener noreferrer" 
+         class="px-6 py-3 bg-[#0077b5] hover:bg-[#005582] text-white rounded-full transition shadow-md">
+        🌐 LinkedIn
+      </a>
+
+    <button onclick="copyPhoneNumber()" class="px-6 py-3 bg-teal-500 hover:bg-teal-600 dark:hover:bg-teal-400 text-white rounded-full transition shadow-md">
+      📱 Phone: 0975 079 0488
+    </button>
+
+    </div>
+
+    <a 
+      href="assets/docs/Justin_Bulot_Resume.zip" 
+      download 
+      class="mt-4 inline-block w-60 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition duration-300 shadow-md text-center"
+    >
+      📄 Download CV (ZIP)
+    </a>
+
+
+  </div>
+
+</section>
+
+</body>
+
+</html>
+
+
+<script >
+  const scrollIndicator = document.getElementById('scroll-indicator');
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    scrollIndicator.style.width = `${scrolled}%`;
+  });
+</script>
+
+<script src="script.js" defer></script>

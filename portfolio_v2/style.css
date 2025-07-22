@@ -1,0 +1,74 @@
+body {
+  scroll-behavior: smooth;
+}
+
+html.dark body {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+    #scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(to right, #38bdf8, #3b82f6);
+      width: 0%;
+      z-index: 50;
+      transition: width 0.25s ease;
+    }
+
+.woah-text {
+  font-weight: 900;
+  background: linear-gradient(90deg, #06b6d4, #6366f1, #ec4899);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #f0f, 0 0 30px #f0f, 0 0 40px #f0f;
+  }
+}
+
+html.dark a {
+  color: #90cdf4;
+}
+
+html.dark .woah-text {
+  background: linear-gradient(90deg, #0ff, #90cdf4, #ec4899);
+  -webkit-text-fill-color: transparent;
+  animation: glow-dark 2s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes backgroundFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.discord-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(-45deg, #6366f1, #9333ea, #14b8a6, #06b6d4);
+  background-size: 400% 400%;
+  animation: backgroundFlow 15s ease infinite;
+  opacity: 0.2;
+  filter: blur(80px);
+}
+
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  
+
