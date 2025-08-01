@@ -64,16 +64,29 @@
 
       <!-- Theme Toggle -->
       <button id="toggle-theme" class="ml-6 p-2 rounded-full border border-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-        <span class="text-xl">🌗</span>
+        <span class="text-xl">🌗</span>>
       </button>
+        <!-- Mobile hamburger toggle -->
+        <button id="mobile-menu-toggle" class="ml-4 md:hidden p-2 rounded border border-gray-300 dark:border-gray-600">
+        ☰
+        </button>
     </div>
   </div>
 </header>
 
+    <!-- Mobile nav (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col px-6 py-4 gap-3">
+        <a href="#top" class="font-medium" onclick="toggleMobileMenu()">Home</a>
+        <a href="#about" class="font-medium" onclick="toggleMobileMenu()">About</a>
+        <a href="#projects" class="font-medium" onclick="toggleMobileMenu()">Projects</a>
+        <a href="#contact" class="font-medium" onclick="toggleMobileMenu()">Contact</a>
+      </div>
+    </div>
 
 
   <!-- Sticky Home Button -->
-  <a href="#top" class="fixed bottom-6 right-6 z-50 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300">
+  <a href="#" class="fixed bottom-6 right-6 z-50 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300">
     ↑
   </a>
 
@@ -112,9 +125,8 @@
 
     
     <!-- Left: Image -->
-    <div class="flex justify-center items-center h-screen">
-      <img src="assets/pic_2.jpg" alt="Your Photo" class="rounded-2xl w-88 shadow-xl transition-transform duration-500 hover:scale-105">
-    </div>
+  <img src="assets/pic_2.jpg" class="rounded-2xl max-w-sm shadow-xl transition-transform duration-500 hover:scale-105">
+
 
 
     <!-- Right: Text -->
@@ -315,7 +327,7 @@
       </a>
 
       <!-- LinkedIn Button -->
-      <a href="https://www.linkedin.com/in/justin-bulot-0765b7334/" target="_blank" rel="noopener noreferrer" 
+      <a href="https://linkedin.com/in/justin-bulot" target="_blank" rel="noopener noreferrer" 
          class="px-6 py-3 bg-[#0077b5] hover:bg-[#005582] text-white rounded-full transition shadow-md">
         🌐 LinkedIn
       </a>
@@ -350,6 +362,26 @@
     const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     scrollIndicator.style.width = `${scrolled}%`;
   });
+
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function toggleMobileMenu() {
+    mobileMenu.classList.toggle('hidden');
+  }
+
+  mobileToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMobileMenu();
+  });
+
+  // click outside to close
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
 </script>
+
 
 <script src="script.js" defer></script>
